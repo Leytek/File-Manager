@@ -4,14 +4,14 @@ import validateArgs from "./validateArgs.js";
 export default class CLi {
   #args;
 
+  #parseArgs = parseArgs;
+  #validateArgs = validateArgs;
+
   constructor() {
     this.#args = {};
     let argsProposal = this.#parseArgs();
     this.#validateArgs(argsProposal);
   }
-
-  #parseArgs = parseArgs;
-  #validateArgs = validateArgs;
 
   get args() {
     return this.#args;
