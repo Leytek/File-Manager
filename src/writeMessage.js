@@ -18,6 +18,7 @@ export default function writeMessage(type) {
     cpus: 'Cpu info:',
     homedir: 'Home directory:',
     username: 'System user name:',
+    architecture: 'CPU architecture:',
   }
   if (messages[type])
     console.log(messages[type]);
