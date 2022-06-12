@@ -1,6 +1,8 @@
 import rl from 'readline'
+
 import operations from './operations/index.js';
 import handleError from './handleError.js';
+import writeMessage from './writeMessage.js';
 
 export default class RLInterface {
   #rli;
@@ -10,7 +12,7 @@ export default class RLInterface {
   }
 
   run = () => {
-    this.#rli.setPrompt('Input operation:\n');
+    this.#rli.setPrompt('Input operations:\n');
     this.#rli.prompt();
     this.#rli.on('line', this.#handleLine);
   }
@@ -23,19 +25,18 @@ export default class RLInterface {
     } catch (e) {
       handleError(e);
     }
-    this.#rli.prompt();
+    writeMessage('cwd');
   }
 
   #parseOperation = (line) => {
     if (!line)
       throw 'noInput';
     let args = line.split` `;
-    let opCandidate= {
+    return {
       name: args.shift(),
       argc: args.length,
       argv: [...args],
-    }
-    return opCandidate;
+    };
   }
 
   #validateOperation = (opCandidate) => {

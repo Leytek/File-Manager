@@ -1,4 +1,4 @@
-import writeMessage from "./writeMessage.js";
+import writeMessage from './writeMessage.js';
 
 export default function handleError(e) {
   if (e === 'opFail')

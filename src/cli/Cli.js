@@ -1,5 +1,5 @@
 import parseArgs from './parseArgs.js';
-import validateArgs from "./validateArgs.js";
+import validateArgs from './validateArgs.js';
 
 export default class CLi {
   #args;
