@@ -10,6 +10,7 @@ export default function writeMessage(type) {
     opFail: 'Operation failed',
     ls: 'Current directory contains:',
     cat: 'File content:',
+    add: 'File created!',
   }
   if (messages[type])
     console.log(messages[type]);

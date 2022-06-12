@@ -3,6 +3,7 @@ import up from './nwd/up.js';
 import cd from './nwd/cd.js';
 import ls from './nwd/ls.js';
 import cat from './fs/cat.js';
+import add from './fs/add.js';
 
 export default {
   '.exit': { argc: 0, operation: exit },
@@ -10,4 +11,5 @@ export default {
   cd: { argc: 1, operation: cd },
   ls: { argc: 0, operation: ls },
   cat: { argc: 1, operation: cat },
+  add: { argc: 1, operation: add },
 };
