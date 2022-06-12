@@ -30,11 +30,14 @@ export default class RLInterface {
   #parseOperation = (line) => {
     if (!line)
       throw 'noInput';
-    let args = line.split` `;
+    let args = line.split`"`;
+    args = args.map(arg => arg.trim()).filter(arg => arg !== '');
+    args = [...args[0].split` `, ...args.slice(1)];
+    console.log(args)
     return {
       name: args.shift(),
       argc: args.length,
-      argv: [...args],
+      argv: args,
     };
   }
 
