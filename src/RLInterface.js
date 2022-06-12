@@ -44,9 +44,9 @@ export default class RLInterface {
 
   #validateOperation = (candidate) => {
     if (!(candidate.name in operations))
-      throw 'unknownOp';
+      throw { type: 'unknownOp', message: 'No such operation.' };
     if (candidate.argc !== operations[candidate.name].argc)
-      throw 'invalidOpArgs';
+      throw { type: 'invalidOpArgs', message: 'Invalid operation arguments.' };
     return operations[candidate.name].operation.bind(null, ...candidate.argv);
   }
 
@@ -58,7 +58,7 @@ export default class RLInterface {
         console.log(result);
       }
     } catch (e) {
-      throw 'opFail';
+      throw { type: 'opFail', message: e.message };
     }
   }
 }
