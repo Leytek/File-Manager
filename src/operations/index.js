@@ -4,6 +4,7 @@ import cd from './nwd/cd.js';
 import ls from './nwd/ls.js';
 import cat from './fs/cat.js';
 import add from './fs/add.js';
+import rn from './fs/rn.js';
 
 export default {
   '.exit': { argc: 0, operation: exit },
@@ -12,4 +13,5 @@ export default {
   ls: { argc: 0, operation: ls },
   cat: { argc: 1, operation: cat },
   add: { argc: 1, operation: add },
+  rn: { argc: 2, operation: rn },
 };

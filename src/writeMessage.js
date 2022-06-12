@@ -11,6 +11,7 @@ export default function writeMessage(type) {
     ls: 'Current directory contains:',
     cat: 'File content:',
     add: 'File created!',
+    rn: 'File renamed!',
   }
   if (messages[type])
     console.log(messages[type]);
