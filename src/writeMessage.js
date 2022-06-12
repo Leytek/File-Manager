@@ -16,6 +16,7 @@ export default function writeMessage(type) {
     rm: 'File removed!',
     EOL: 'End of line:',
     cpus: 'Cpu info:',
+    homedir: 'Home directory:',
   }
   if (messages[type])
     console.log(messages[type]);
