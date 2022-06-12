@@ -1,5 +1,7 @@
+import exit from './exit.js';
 import up from './up.js';
 
 export default {
-  up: { argc: 0, op: up },
+  '.exit': { argc: 0, operation: exit },
+  up: { argc: 0, operation: up },
 };

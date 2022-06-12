@@ -18,9 +18,9 @@ export default class RLInterface {
 
   #handleLine = (line) => {
     try {
-      let opCandidate = this.#parseOperation(line);
-      let op = this.#validateOperation(opCandidate);
-      this.#execOperation(op);
+      let candidate = this.#parseOperation(line);
+      let operation = this.#validateOperation(candidate);
+      this.#execOperation(operation);
     } catch (e) {
       handleError(e);
     }
@@ -43,12 +43,12 @@ export default class RLInterface {
       throw 'unknownOp';
     if (opCandidate.argc !== operations[opCandidate.name].argc)
       throw 'invalidOpArgs';
-    return operations[opCandidate.name].op.bind(null, ...opCandidate.argv);
+    return operations[opCandidate.name].operation.bind(null, ...opCandidate.argv);
   }
 
-  #execOperation = (op) => {
+  #execOperation = (operation) => {
     try {
-      op();
+      operation();
     } catch (e) {
       throw 'opFail';
     }
