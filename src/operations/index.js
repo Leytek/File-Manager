@@ -6,6 +6,7 @@ import cat from './fs/cat.js';
 import add from './fs/add.js';
 import rn from './fs/rn.js';
 import cp from './fs/cp.js';
+import mv from './fs/mv.js';
 
 export default {
   '.exit': { argc: 0, operation: exit },
@@ -16,4 +17,5 @@ export default {
   add: { argc: 1, operation: add },
   rn: { argc: 2, operation: rn },
   cp: { argc: 2, operation: cp },
+  mv: { argc: 2, operation: mv },
 };

@@ -12,6 +12,7 @@ export default function writeMessage(type) {
     add: 'File created!',
     rn: 'File renamed!',
     cp: 'File copied!',
+    mv: 'File moved!',
   }
   if (messages[type])
     console.log(messages[type]);
