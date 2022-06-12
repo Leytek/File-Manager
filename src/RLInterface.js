@@ -33,17 +33,16 @@ export default class RLInterface {
     let opCandidate= {
       name: args.shift(),
       argc: args.length,
+      argv: [...args],
     }
-    args.forEach((arg, i) => opCandidate[`arg${i}`] = arg);
     return opCandidate;
   }
 
   #validateOperation = (opCandidate) => {
-    if (opCandidate.name in operations) {
-      if (opCandidate.argc === operations[opCandidate.name].argc)
-        return operations[opCandidate.name].op;
+    if (!(opCandidate.name in operations))
+      throw 'unknownOp';
+    if (opCandidate.argc !== operations[opCandidate.name].argc)
       throw 'invalidOpArgs';
-    }
-    throw 'unknownOp';
+    return operations[opCandidate.name].op.bind(null, ...opCandidate.argv);
   }
 }
