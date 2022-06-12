@@ -19,6 +19,7 @@ export default function writeMessage(type) {
     homedir: 'Home directory:',
     username: 'System user name:',
     architecture: 'CPU architecture:',
+    hash: 'SHA256 hash of file:',
   }
   if (messages[type])
     console.log(messages[type]);
