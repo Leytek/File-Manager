@@ -33,6 +33,8 @@ export default class RLInterface {
     let args = line.split`"`;
     args = args.map(arg => arg.trim()).filter(arg => arg !== '');
     args = [...args[0].split` `, ...args.slice(1)];
+    if (args[0] === 'os')
+      args = [ args.slice(1).join``.slice(2) ];
     return {
       name: args.shift(),
       argc: args.length,
@@ -41,8 +43,6 @@ export default class RLInterface {
   }
 
   #validateOperation = (candidate) => {
-    if (candidate.name === 'os')
-      candidate.name = candidate.argv.join``.slice(2);
     if (!(candidate.name in operations))
       throw 'unknownOp';
     if (candidate.argc !== operations[candidate.name].argc)

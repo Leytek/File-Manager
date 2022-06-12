@@ -21,5 +21,5 @@ export default {
   cp: { argc: 2, operation: cp },
   mv: { argc: 2, operation: mv },
   rm: { argc: 1, operation: rm },
-  'EOL': { argc: 1, operation: eol},
+  'EOL': { argc: 0, operation: eol},
 };
