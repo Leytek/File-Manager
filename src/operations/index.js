@@ -9,6 +9,7 @@ import cp from './fs/cp.js';
 import mv from './fs/mv.js';
 import rm from './fs/rm.js';
 import eol from './os/eol.js';
+import cpus from './os/cpus.js';
 
 export default {
   '.exit': { argc: 0, operation: exit },
@@ -21,5 +22,6 @@ export default {
   cp: { argc: 2, operation: cp },
   mv: { argc: 2, operation: mv },
   rm: { argc: 1, operation: rm },
-  'EOL': { argc: 0, operation: eol},
+  EOL: { argc: 0, operation: eol},
+  cpus: { argc: 0, operation: cpus },
 };

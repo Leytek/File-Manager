@@ -14,7 +14,8 @@ export default function writeMessage(type) {
     cp: 'File copied!',
     mv: 'File moved!',
     rm: 'File removed!',
-    'EOL': 'End of line:',
+    EOL: 'End of line:',
+    cpus: 'Cpu info:',
   }
   if (messages[type])
     console.log(messages[type]);
