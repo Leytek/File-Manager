@@ -14,6 +14,8 @@ import homedir from './os/homedir.js';
 import username from './os/username.js';
 import arch from './os/arch.js';
 import hash from './hash.js';
+import compress from './zip/compress.js';
+import decompress from './zip/decompress.js';
 
 export default {
   '.exit': { argc: 0, operation: exit },
@@ -32,4 +34,6 @@ export default {
   username: { argc: 0, operation: username },
   architecture: { argc: 0, operation: arch },
   hash: { argc: 1, operation: hash },
+  compress: { argc: 2, operation: compress },
+  decompress: { argc: 2, operation: decompress },
 };

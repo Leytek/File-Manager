@@ -20,6 +20,8 @@ export default function writeMessage(type) {
     username: 'System user name:',
     architecture: 'CPU architecture:',
     hash: 'SHA256 hash of file:',
+    compress: 'File compressed!',
+    decompress: 'File decompressed!',
   }
   if (messages[type])
     console.log(messages[type]);

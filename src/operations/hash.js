@@ -1,7 +1,7 @@
 import {resolve} from 'path';
 import {open} from 'fs/promises';
 import {createHash} from 'crypto';
-import {once} from 'events'
+import {once} from 'events';
 import globalVar from '../globalVar.js';
 
 export default async function hash(targetFilePath) {
