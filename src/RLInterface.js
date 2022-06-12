@@ -12,8 +12,7 @@ export default class RLInterface {
   }
 
   run = () => {
-    this.#rli.setPrompt('Input operations:\n');
-    this.#rli.prompt();
+    writeMessage('prompt');
     this.#rli.on('line', this.#handleLine);
   }
 
@@ -21,7 +20,7 @@ export default class RLInterface {
     try {
       let opCandidate = this.#parseOperation(line);
       let op = this.#validateOperation(opCandidate);
-      op();
+      this.#execOperation(op);
     } catch (e) {
       handleError(e);
     }
@@ -45,5 +44,13 @@ export default class RLInterface {
     if (opCandidate.argc !== operations[opCandidate.name].argc)
       throw 'invalidOpArgs';
     return operations[opCandidate.name].op.bind(null, ...opCandidate.argv);
+  }
+
+  #execOperation = (op) => {
+    try {
+      op();
+    } catch (e) {
+      throw 'opFail';
+    }
   }
 }
