@@ -7,6 +7,7 @@ import add from './fs/add.js';
 import rn from './fs/rn.js';
 import cp from './fs/cp.js';
 import mv from './fs/mv.js';
+import rm from './fs/rm.js';
 
 export default {
   '.exit': { argc: 0, operation: exit },
@@ -18,4 +19,5 @@ export default {
   rn: { argc: 2, operation: rn },
   cp: { argc: 2, operation: cp },
   mv: { argc: 2, operation: mv },
+  rm: { argc: 1, operation: rm },
 };
