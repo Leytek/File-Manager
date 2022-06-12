@@ -17,6 +17,7 @@ export default function writeMessage(type) {
     EOL: 'End of line:',
     cpus: 'Cpu info:',
     homedir: 'Home directory:',
+    username: 'System user name:',
   }
   if (messages[type])
     console.log(messages[type]);

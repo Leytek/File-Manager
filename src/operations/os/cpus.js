@@ -1,6 +1,6 @@
 import os from 'os';
 
-export default async function cpus() {
+export default function cpus() {
   let num = os.cpus().length;
   return os.cpus().reduce((acc, cpu) => {
     let mod = cpu.model;

@@ -11,6 +11,7 @@ import rm from './fs/rm.js';
 import eol from './os/eol.js';
 import cpus from './os/cpus.js';
 import homedir from './os/homedir.js';
+import username from './os/username.js';
 
 export default {
   '.exit': { argc: 0, operation: exit },
@@ -25,5 +26,6 @@ export default {
   rm: { argc: 1, operation: rm },
   EOL: { argc: 0, operation: eol},
   cpus: { argc: 0, operation: cpus },
-  homedir: {argc: 0, operation: homedir },
+  homedir: { argc: 0, operation: homedir },
+  username: { argc: 0, operation: username },
 };

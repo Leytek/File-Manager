@@ -1,5 +1,5 @@
 import os from 'os';
 
-export default async function homedir() {
+export default function homedir() {
   return os.homedir();
 }
