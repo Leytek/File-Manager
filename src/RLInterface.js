@@ -20,7 +20,7 @@ export default class RLInterface {
     try {
       let candidate = this.#parseOperation(line);
       let operation = this.#validateOperation(candidate);
-      await this.#execOperation(operation);
+      await this.#execOperation(operation, candidate.name);
     } catch (e) {
       handleError(e);
     }
@@ -33,7 +33,6 @@ export default class RLInterface {
     let args = line.split`"`;
     args = args.map(arg => arg.trim()).filter(arg => arg !== '');
     args = [...args[0].split` `, ...args.slice(1)];
-    console.log(args)
     return {
       name: args.shift(),
       argc: args.length,
@@ -41,17 +40,21 @@ export default class RLInterface {
     };
   }
 
-  #validateOperation = (opCandidate) => {
-    if (!(opCandidate.name in operations))
+  #validateOperation = (candidate) => {
+    if (!(candidate.name in operations))
       throw 'unknownOp';
-    if (opCandidate.argc !== operations[opCandidate.name].argc)
+    if (candidate.argc !== operations[candidate.name].argc)
       throw 'invalidOpArgs';
-    return operations[opCandidate.name].operation.bind(null, ...opCandidate.argv);
+    return operations[candidate.name].operation.bind(null, ...candidate.argv);
   }
 
-  #execOperation = async (operation) => {
+  #execOperation = async (operation, name) => {
     try {
-      await operation();
+      let result = await operation();
+      if (result) {
+        writeMessage(name);
+        console.log(result);
+      }
     } catch (e) {
       throw 'opFail';
     }
