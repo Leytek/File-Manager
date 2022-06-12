@@ -1,4 +1,4 @@
-import {copyFile, rename} from 'fs/promises';
+import {rename} from 'fs/promises';
 import path from 'path';
 import globalVar from '../../globalVar.js';
 

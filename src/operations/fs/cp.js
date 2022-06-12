@@ -8,8 +8,5 @@ export default async function cp(targetFilePath, newDirPath) {
   let fileName = path.basename(source);
   let destination = path.join(dirPath, fileName);
 
-  console.log(source)
-  console.log(destination)
-
   await copyFile(source, destination);
 }
