@@ -16,11 +16,11 @@ export default class RLInterface {
     this.#rli.on('line', this.#handleLine);
   }
 
-  #handleLine = (line) => {
+  #handleLine = async (line) => {
     try {
       let candidate = this.#parseOperation(line);
       let operation = this.#validateOperation(candidate);
-      this.#execOperation(operation);
+      await this.#execOperation(operation);
     } catch (e) {
       handleError(e);
     }
@@ -46,9 +46,9 @@ export default class RLInterface {
     return operations[opCandidate.name].operation.bind(null, ...opCandidate.argv);
   }
 
-  #execOperation = (operation) => {
+  #execOperation = async (operation) => {
     try {
-      operation();
+      await operation();
     } catch (e) {
       throw 'opFail';
     }
