@@ -41,6 +41,8 @@ export default class RLInterface {
   }
 
   #validateOperation = (candidate) => {
+    if (candidate.name === 'os')
+      candidate.name = candidate.argv.join``.slice(2);
     if (!(candidate.name in operations))
       throw 'unknownOp';
     if (candidate.argc !== operations[candidate.name].argc)
