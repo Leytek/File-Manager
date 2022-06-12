@@ -9,6 +9,7 @@ export default async function cat(targetPath) {
   let file = await open(filePath);
   let stream = file.createReadStream();
 
+  process.stdout.write('File content:\n');
   stream.pipe(process.stdout);
   await once(stream, 'end');
   process.stdout.write('\n');

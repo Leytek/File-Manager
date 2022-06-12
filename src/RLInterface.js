@@ -50,8 +50,8 @@ export default class RLInterface {
 
   #execOperation = async (operation, name) => {
     try {
-      writeMessage(name);
       let result = await operation();
+      writeMessage(name);
       if (result) {
         console.log(result);
       }

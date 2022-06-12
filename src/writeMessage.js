@@ -9,9 +9,9 @@ export default function writeMessage(type) {
     invalidInput: 'Invalid input',
     opFail: 'Operation failed',
     ls: 'Current directory contains:',
-    cat: 'File content:',
     add: 'File created!',
     rn: 'File renamed!',
+    cp: 'File copied!',
   }
   if (messages[type])
     console.log(messages[type]);
