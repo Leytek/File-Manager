@@ -9,6 +9,8 @@ export default function writeMessage(type) {
     invalidInput: 'Invalid input',
     opFail: 'Operation failed',
     ls: 'Current directory contains:',
+    cat: 'File content:',
   }
-  console.log(messages[type] ?? 'Result:');
+  if (messages[type])
+    console.log(messages[type]);
 }
